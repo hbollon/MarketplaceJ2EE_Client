@@ -9,7 +9,6 @@ import {Router} from '@angular/router';
 })
 export class AppComponent {
   showMenu = false;
-
   userEmail = '';
 
   constructor(public router: Router) {

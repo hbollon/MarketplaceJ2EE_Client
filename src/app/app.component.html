@@ -120,7 +120,7 @@
     .main__header {
         width: 100%;
         display: grid;
-        grid-template-columns: 1fr 1fr 0.25fr;
+        grid-template-columns: 0.1fr 1fr 0.1fr;
         grid-template-rows: 1fr;
         box-shadow: 0 0 2rem rgba(0, 0, 255, 0.1);
         height: 4rem;
@@ -186,16 +186,23 @@
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: 1fr 1fr;
+        padding-left: 10%;
         max-width: 5rem;
+        height: 100%;
     }
     
-    .date__text {
-        text-transform: uppercase;
+    .right__section {
+        text-align: right;
+        padding-right: 10%;
+        height: 100%;
+    }
+    
+    .page-title {
         letter-spacing: 0.1rem;
         display: inline;
+        text-align: center;
         margin: 0.5rem 0;
     }
-    /*SVGs*/
     
     .hamburger__icon {
         position: relative;
@@ -258,6 +265,12 @@
         color: white;
     }
     
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
     @media only screen and (max-width: 300px) {
         .slide-menu {
             width: 100%;
@@ -287,16 +300,12 @@
 <div class="root__container">
     <header class="main__header">
         <div class="left__section">
-            <svg (click)="toggleMenu()" class="hamburger__icon" id="Menu_Burger_Icon">
-
-            </svg>
-            <svg class="logo__icon">
-
-            </svg>
+            <app-hamburger-menu class="center" (click)="toggleMenu()"></app-hamburger-menu>
+            <svg class="logo__icon"></svg>
         </div>
 
-        <h3 class="date__text">Today</h3>
-        <div>
+        <h1 class="page-title">Marketplace J2EE</h1>
+        <div class="right__section center">
             <span class="mode-toggle__text">Light</span>
             <label class="toggle-button__container">
                 <input type="checkbox" class="mode-toggle__input" />
