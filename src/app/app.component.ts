@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {take} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'MarketplaceJ2EEClient';
+  showMenu = false;
+
+  userEmail = '';
+
+  constructor(public router: Router) {
+  }
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+  }
+
+  logout() {
+    this.toggleMenu();
+    this.router.navigateByUrl('/login');
+  }
+
 }
