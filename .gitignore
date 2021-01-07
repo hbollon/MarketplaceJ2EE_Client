@@ -1,0 +1,35 @@
+## Angular ##
+# Compiled output
+dist/
+tmp/
+app/**/*.js
+app/**/*.js.map
+
+# Dependencies
+node_modules/
+bower_components/
+
+# IDEs and editors
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# misc
+.sass-cache/
+connect.lock/
+coverage/
+libpeerconnection.log/
+npm-debug.log
+testem.log
+typings/
+
+# e2e
+e2e/*.js
+e2e/*.map
+
+# System Files
+.DS_Store/
