@@ -280,7 +280,7 @@
 
 <!-- Slide Menu-->
 <aside class="side-menu__container" [ngClass]="{'side-menu__container-active': showMenu}" (click)="toggleMenu()">
-    <nav class="slide-menu">
+    <nav class="slide-menu" [ngClass]="{'slide-menu-active': showMenu}">
         <section class="menu-header">
             <span class="greeting__text">Welcome Back</span>
             <div class="account-details">
