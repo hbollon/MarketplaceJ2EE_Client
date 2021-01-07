@@ -1,35 +1,44 @@
-## Angular ##
-# Compiled output
-dist/
-tmp/
-app/**/*.js
-app/**/*.js.map
+# compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
 
-# Dependencies
-node_modules/
-bower_components/
+# dependencies
+/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
 
 # IDEs and editors
-.idea/
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-*.code-workspace
+.history/*
 
 # misc
-.sass-cache/
-connect.lock/
-coverage/
-libpeerconnection.log/
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
 npm-debug.log
+yarn-error.log
 testem.log
-typings/
-
-# e2e
-e2e/*.js
-e2e/*.map
+/typings
 
 # System Files
-.DS_Store/
+.DS_Store
+Thumbs.db
