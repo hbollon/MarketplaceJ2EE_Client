@@ -2,17 +2,14 @@
     .root__container {
         width: 100vw;
         height: 100vh;
-        display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: 0.5fr auto;
         position: relative;
     }
-    
+
     .main__container {
         width: 100%;
         height: 100%;
     }
-    
+
     .side-menu__container {
         position: fixed;
         left: 0;
@@ -23,11 +20,11 @@
         pointer-events: none;
         z-index: 25;
     }
-    
+
     .side-menu__container-active {
         pointer-events: auto;
     }
-    
+
     .side-menu__container::before {
         content: '';
         cursor: pointer;
@@ -42,11 +39,11 @@
         transition: opacity 300ms linear;
         will-change: opacity;
     }
-    
+
     .side-menu__container-active::before {
         opacity: 0.3;
     }
-    
+
     .slide-menu {
         box-sizing: border-box;
         transform: translateX(-103%);
@@ -63,14 +60,14 @@
         grid-template-columns: 1fr;
         grid-template-rows: 2fr 4fr 1fr;
         grid-gap: 1rem;
-        transition: transform 300ms linear;
+        transition: transform 200ms linear;
         will-change: transform;
     }
-    
+
     .slide-menu-active {
         transform: none;
     }
-    
+
     .menu-header {
         background: linear-gradient(to right, #00FF9B, #5f84fb);
         display: grid;
@@ -83,7 +80,7 @@
         color: white;
         box-shadow: 0 0.5rem 2rem rgba(0, 0, 255, 0.2);
     }
-    
+
     .greeting__text {
         grid-area: greeting;
         font-size: 1.25rem;
@@ -93,7 +90,7 @@
         justify-self: center;
         align-self: center;
     }
-    
+
     .account-details {
         grid-area: details;
         display: flex;
@@ -101,22 +98,22 @@
         margin-left: 1rem;
         align-self: center;
     }
-    
+
     .name__text {
         font-size: 1.15rem;
         margin-bottom: 0.5rem;
     }
-    
+
     .email__text {
         font-size: 0.9rem;
         letter-spacing: 0.1rem;
     }
-    
+
     .menu-body {
         display: grid;
         width: 100%;
     }
-    
+
     .main__header {
         width: 100%;
         display: grid;
@@ -129,32 +126,32 @@
         transition: background-color 500ms linear;
         animation: 1s ease-in-out 0ms 1 fadein;
     }
-    
+
     .main__header-dark {
         background-color: #2B244D;
         color: white;
     }
-    
+
     .toggle-button__container {
         cursor: pointer;
         position: relative;
         margin: 0 0.5rem;
     }
-    
+
     .mode-toggle__input {
         -webkit-appearance: none;
         -moz-appearance: none;
     }
-    
+
     .mode-toggle__bg {
         height: 1rem;
         width: 2rem;
         border-radius: 0.5rem;
         background-color: rgba(0, 0, 0, 0.5);
         display: inline-block;
-        transition: background-color 300ms linear;
+        transition: background-color 200ms linear;
     }
-    
+
     .mode-toggle__circle {
         height: 1.30rem;
         width: 1.30rem;
@@ -166,22 +163,22 @@
         transition: left 300ms linear;
         left: 0.1rem;
     }
-    
+
     .mode-toggle__circle-checked {
         background-color: white;
         left: 1.75rem;
     }
-    
+
     .mode-toggle__bg-checked {
         background-color: #FF0070;
     }
-    
+
     .mode-toggle__text {
         font-size: 0.75rem;
         text-transform: uppercase;
         letter-spacing: 0.1rem;
     }
-    
+
     .left__section {
         display: grid;
         grid-template-rows: 1fr;
@@ -190,20 +187,20 @@
         max-width: 5rem;
         height: 100%;
     }
-    
+
     .right__section {
         text-align: right;
         padding-right: 10%;
         height: 100%;
     }
-    
+
     .page-title {
         letter-spacing: 0.1rem;
         display: inline;
         text-align: center;
         margin: 0.5rem 0;
     }
-    
+
     .hamburger__icon {
         position: relative;
         z-index: 35;
@@ -212,46 +209,44 @@
         margin-right: 1rem;
         cursor: pointer;
     }
-    
+
     .logo__icon {
         height: 2rem;
         margin-left: 1rem;
     }
-    
+
     .logo__text {
         fill: #2B244D;
     }
-    
+
     .logo__text-dark {
         fill: #ffff;
     }
-    
+
     .hamburger__icon__fill {
         fill: #2B244D;
     }
-    
+
     .hamburger__icon__fill-dark {
         fill: #ffff;
     }
-    
+
     .main-container__bg {
         height: 100%;
         width: 100%;
-        position: absolute;
         top: 0;
         left: 0;
         z-index: -2;
-        opacity: 0;
         background: white;
         transition: opacity 300ms linear;
     }
-    
+
     .main-container__bg-dark {
         opacity: 1;
         background: linear-gradient(to bottom, #B290FF, #2E1D65);
-        transition: opacity 300ms linear;
+        transition: opacity 200ms linear;
     }
-    
+
     .main__footer {
         background: transparent;
         position: absolute;
@@ -259,18 +254,24 @@
         left: 1.5rem;
         z-index: 100;
     }
-    
+
     .copyright__text {
         letter-spacing: 0.1rem;
         color: white;
     }
-    
+
     .center {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    
+
+    .product {
+        margin: 5rem;
+        width: 100%;
+        height: 100%;
+    }
+
     @media only screen and (max-width: 300px) {
         .slide-menu {
             width: 100%;
@@ -321,7 +322,45 @@
 
     <!--<router-outlet></router-outlet>-->
     <main class="main__container">
-        <div class="main-container__bg"></div>
+        <div class="main-container__bg">
+            <div class="content mt-5 mx-auto">
+                <div class="row justify-content-center w-100">
+                    <div class="col col-lg-3 col-sm-4">
+                        <app-item-card class="product"></app-item-card>
+                    </div>
+                    <div class="col col-lg-3 col-sm-4">
+                        <app-item-card class="product"></app-item-card>
+                    </div>
+                    <div class="col col-lg-3 col-sm-4">
+                        <app-item-card class="product"></app-item-card>
+                    </div>
+                    <div class="col col-lg-3 col-sm-4">
+                        <app-item-card class="product"></app-item-card>
+                    </div>
+                    <div class="col col-lg-3 col-sm-4">
+                        <app-item-card class="product"></app-item-card>
+                    </div>
+                    <div class="col col-lg-3 col-sm-4">
+                        <app-item-card class="product"></app-item-card>
+                    </div>
+                    <div class="col col-lg-3 col-sm-4">
+                        <app-item-card class="product"></app-item-card>
+                    </div>
+                    <div class="col col-lg-3 col-sm-4">
+                        <app-item-card class="product"></app-item-card>
+                    </div>
+                    <div class="col col-lg-3 col-sm-4">
+                        <app-item-card class="product"></app-item-card>
+                    </div>
+                    <div class="col col-lg-3 col-sm-4">
+                        <app-item-card class="product"></app-item-card>
+                    </div>
+                    <div class="col col-lg-3 col-sm-4">
+                        <app-item-card class="product"></app-item-card>
+                    </div>
+                </div>
+            </div>
+        </div>
         <router-outlet></router-outlet>
     </main>
 
