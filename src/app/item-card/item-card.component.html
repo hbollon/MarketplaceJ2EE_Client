@@ -1,18 +1,18 @@
 <mat-card class="card-product m-auto">
     <mat-card-header>
         <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>Product name</mat-card-title>
+        <mat-card-title>{{product.name}}</mat-card-title>
         <mat-card-subtitle>Seller name</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="assets/sam.png" alt="Le boss">
     <mat-card-content>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias dolorum fugit temporibus debitis ab quam enim iure nesciunt labore molestias! Voluptatibus incidunt debitis ratione, necessitatibus repellendus libero totam suscipit sapiente!
+            {{product.description}}
         </p>
         <p [innerHTML]="deliveryFeesHtml"></p>
     </mat-card-content>
     <mat-card-actions>
         <button mat-button>Buy</button>
-        <button mat-button (click)="getDeliveryFee(40)">Calculate delivery fees</button>
+        <button mat-button (click)="getDeliveryFee(product.weight)">Calculate delivery fees</button>
     </mat-card-actions>
 </mat-card>

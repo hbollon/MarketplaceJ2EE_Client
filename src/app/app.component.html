@@ -44,38 +44,8 @@
         <div class="main-container__bg">
             <div class="content mt-5 mx-auto">
                 <div class="row justify-content-center w-100">
-                    <div class="col col-lg-3 col-sm-4">
-                        <app-item-card class="product"></app-item-card>
-                    </div>
-                    <div class="col col-lg-3 col-sm-4">
-                        <app-item-card class="product"></app-item-card>
-                    </div>
-                    <div class="col col-lg-3 col-sm-4">
-                        <app-item-card class="product"></app-item-card>
-                    </div>
-                    <div class="col col-lg-3 col-sm-4">
-                        <app-item-card class="product"></app-item-card>
-                    </div>
-                    <div class="col col-lg-3 col-sm-4">
-                        <app-item-card class="product"></app-item-card>
-                    </div>
-                    <div class="col col-lg-3 col-sm-4">
-                        <app-item-card class="product"></app-item-card>
-                    </div>
-                    <div class="col col-lg-3 col-sm-4">
-                        <app-item-card class="product"></app-item-card>
-                    </div>
-                    <div class="col col-lg-3 col-sm-4">
-                        <app-item-card class="product"></app-item-card>
-                    </div>
-                    <div class="col col-lg-3 col-sm-4">
-                        <app-item-card class="product"></app-item-card>
-                    </div>
-                    <div class="col col-lg-3 col-sm-4">
-                        <app-item-card class="product"></app-item-card>
-                    </div>
-                    <div class="col col-lg-3 col-sm-4">
-                        <app-item-card class="product"></app-item-card>
+                    <div class="col col-lg-3 col-sm-4" *ngFor="let product of products">
+                        <app-item-card class="product" [product]="product"></app-item-card>
                     </div>
                 </div>
             </div>

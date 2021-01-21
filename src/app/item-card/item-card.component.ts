@@ -1,4 +1,4 @@
-import { ViewChild } from '@angular/core';
+import { Input, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 const soapRequest: any = require('easy-soap-request');
@@ -9,6 +9,10 @@ const soapRequest: any = require('easy-soap-request');
   styleUrls: ['./item-card.component.scss'],
 })
 export class ItemCardComponent implements OnInit {
+
+  @Input()
+    product: any;
+
   deliveryFeesHtml: string
 
   constructor() {
@@ -65,7 +69,7 @@ export class ItemCardComponent implements OnInit {
     //Read returned fees
     var fees = xmlDocument.getElementsByTagName("return")[0].childNodes[0].nodeValue;
     console.log(fees);
-    this.deliveryFeesHtml = "Delivery fees: " + fees
+    this.deliveryFeesHtml = "Delivery fees: " + fees + "€"
   }
 
   reset() {
