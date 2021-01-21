@@ -27,6 +27,7 @@
         "core-js": "^3.8.2",
         "jquery": "^3.5.1",
         "rxjs": "~6.6.0",
+        "sxml": "^1.0.4",
         "zone.js": "~0.10.2"
     },
     "devDependencies": {
