@@ -10,6 +10,8 @@ import { MatCardModule } from '@angular/material/card';
 import { HamburgerMenuComponent } from './hamburger-menu/hamburger-menu.component';
 import { ItemCardComponent } from './item-card/item-card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    NgbModule
+    NgbModule,
+    GraphQLModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

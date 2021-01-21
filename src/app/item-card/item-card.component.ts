@@ -2,7 +2,6 @@ import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 const soapRequest: any = require('easy-soap-request');
-import {XML, XMLList} from "sxml";
 
 @Component({
   selector: 'app-item-card',
