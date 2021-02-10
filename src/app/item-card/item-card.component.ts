@@ -78,7 +78,7 @@ export class ItemCardComponent implements OnInit {
 
   openRegisterDialog() {
     const dialogRef = this.dialog.open(ClientRegisterDialogComponent, {
-      width: '250px',
+      width: '320px',
       data: {client: this.client}
     });
 
