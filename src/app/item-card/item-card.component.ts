@@ -21,7 +21,7 @@ export class ItemCardComponent implements OnInit {
 
   deliveryFeesHtml: string;
   client: Client;
-  product: Product | null = null;
+  product!: Product;
 
   constructor(public dialog: MatDialog, private http: HttpClient) {
     this.deliveryFeesHtml = "";
@@ -95,7 +95,7 @@ export class ItemCardComponent implements OnInit {
   async showFees(weight: number) {
     const fees = await this.getDeliveryFee(weight);
     console.log(fees);
-    if (fees != -1) {
+    if (this.product != null && fees != -1) {
       this.product.fees = fees;
       this.deliveryFeesHtml = "Delivery fees: " + fees + "€"
     } else {
@@ -124,6 +124,7 @@ export class ItemCardComponent implements OnInit {
   async buy() {
     if (this.product != null) {
       this.product.fees = await this.getDeliveryFee(this.product.weight)
+      console.log(this.product);
       var obj = new BuyRequest(this.product, this.client);
       var body = JSON.stringify(obj);
       console.log(body);
