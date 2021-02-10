@@ -11,7 +11,6 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     cache: new InMemoryCache(),
   };
 }
-
 @NgModule({
   providers: [
     {

@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Client registration</h1>
+<div mat-dialog-content>
+    <p>
+        Please fill in these few details in order to continue with the payment.
+    </p>
+    <mat-form-field>
+        <mat-label>First name</mat-label>
+        <input matInput [(ngModel)]="data.firstName">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Last name</mat-label>
+        <input matInput [(ngModel)]="data.lastName">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="data.email">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data">Submit</button>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+</div>
