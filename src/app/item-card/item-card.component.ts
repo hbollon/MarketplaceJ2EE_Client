@@ -1,7 +1,11 @@
-import { ClientRegisterDialogComponent } from './../client-register-dialog/client-register-dialog.component';
-import { Component, Input, Inject, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Input, Injectable, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Client } from 'src/app/models/client.model'
+import { ClientRegisterDialogComponent } from './../client-register-dialog/client-register-dialog.component';
+import { BuyRequest } from '../models/buyRequest.model';
+import { Product } from '../models/product.model';
 
 const soapRequest: any = require('easy-soap-request');
 
@@ -10,22 +14,51 @@ const soapRequest: any = require('easy-soap-request');
   templateUrl: './item-card.component.html',
   styleUrls: ['./item-card.component.scss'],
 })
+@Injectable()
 export class ItemCardComponent implements OnInit {
-
   @Input()
-    product: any;
+    productQl: any;
 
   deliveryFeesHtml: string;
-  client: Client | null;
+  client: Client;
+  product: Product | null = null;
 
-  constructor(public dialog: MatDialog) {
-    this.deliveryFeesHtml = ""
+  constructor(public dialog: MatDialog, private http: HttpClient) {
+    this.deliveryFeesHtml = "";
     this.client = new Client("", "", "");
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.product = new Product(
+      this.productQl.name,
+      this.productQl.description,
+      this.productQl.quantity,
+      this.productQl.weight,
+      this.productQl.price,
+      0
+    )
+  }
 
-  getDeliveryFee(weight: number): void {
+  getFeesFromXML(body: any): number {
+    //Create a new DOMParser object.
+    var domParser = new DOMParser();
+
+    //Parse the XML string into an XMLDocument object using
+    //the DOMParser.parseFromString() method.
+    var xmlDocument = domParser.parseFromString(body, "text/xml");
+
+    //Log it to the console
+    console.log(xmlDocument);
+
+    //Read returned fees
+    var fees = xmlDocument.getElementsByTagName("return")[0].childNodes[0].nodeValue;
+    if(fees != null)
+      return +fees;
+    else
+      return -1;
+  }
+
+  async getDeliveryFee(weight: number): Promise<number> {
     const url =
       'http://localhost:8080/MarketplaceServer-1.0-SNAPSHOT/services/DeliveryFee?wsdl';
     const sampleHeaders = {
@@ -43,7 +76,7 @@ export class ItemCardComponent implements OnInit {
       </soapenv:Body>
     </soapenv:Envelope>`;
 
-    (async () => {
+    return await (async () => {
       const { response } = await soapRequest({
         url: url,
         headers: sampleHeaders,
@@ -55,37 +88,59 @@ export class ItemCardComponent implements OnInit {
       console.log(body);
       console.log(statusCode);
 
-      this.showFees(body)
+      return this.getFeesFromXML(body);
     })();
   }
 
-  showFees(body: string) {
-    //Create a new DOMParser object.
-    var domParser = new DOMParser();
-
-    //Parse the XML string into an XMLDocument object using
-    //the DOMParser.parseFromString() method.
-    var xmlDocument = domParser.parseFromString(body, "text/xml");
-
-    //Log it to the console
-    console.log(xmlDocument);
-
-    //Read returned fees
-    var fees = xmlDocument.getElementsByTagName("return")[0].childNodes[0].nodeValue;
+  async showFees(weight: number) {
+    const fees = await this.getDeliveryFee(weight);
     console.log(fees);
-    this.deliveryFeesHtml = "Delivery fees: " + fees + "€"
+    if (fees != -1) {
+      this.product.fees = fees;
+      this.deliveryFeesHtml = "Delivery fees: " + fees + "€"
+    } else {
+      console.log("Error during delivery fees calculation.")
+    }
   }
 
-  openRegisterDialog() {
+  openRegisterDialog() {    console.log(this.productQl);
+
     const dialogRef = this.dialog.open(ClientRegisterDialogComponent, {
       width: '320px',
       data: {client: this.client}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.client = result;
-      console.log(this.client);
+      if(result != false) {
+        this.client = result;
+        console.log(this.client);
+        this.buy()
+      } else {
+        console.log("dialog false");
+      }
     });
+  }
+
+  async buy() {
+    if (this.product != null) {
+      this.product.fees = await this.getDeliveryFee(this.product.weight)
+      var obj = new BuyRequest(this.product, this.client);
+      var body = JSON.stringify(obj);
+      console.log(body);
+      const httpOptions = {
+        headers: new HttpHeaders({'Content-Type': 'application/json'})
+      }
+      this.http.post<any>(
+        "http://localhost:8080/MarketplaceServer-1.0-SNAPSHOT/rest/mangopay/pay",
+        body,
+        httpOptions
+      ).subscribe(data => {
+        console.log(data.RedirectURL);
+        window.location.href = data.RedirectURL;
+      });
+    } else {
+      console.log("Invalid product!")
+    }
   }
 
   reset() {

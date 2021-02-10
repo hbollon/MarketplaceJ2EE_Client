@@ -10,6 +10,7 @@ const allProductsQuery = gql`
     description
     quantity
     weight
+    price
   }
 }
 `
