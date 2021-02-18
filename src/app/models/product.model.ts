@@ -5,6 +5,7 @@ export class Product {
   public weight: number;
   public price: number;
   public fees: number;
+  public assetUrl: string;
 
   constructor(
     name: string,
@@ -12,7 +13,8 @@ export class Product {
     quantity: number,
     weight: number,
     price: number,
-    fees: number
+    fees: number,
+    assetUrl: string
   ) {
     this.name = name;
     this.description = description;
@@ -20,5 +22,6 @@ export class Product {
     this.weight = weight;
     this.price = price;
     this.fees = fees;
+    this.assetUrl = assetUrl;
   }
 }

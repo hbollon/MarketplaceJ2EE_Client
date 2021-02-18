@@ -35,7 +35,8 @@ export class ItemCardComponent implements OnInit {
       this.productQl.quantity,
       this.productQl.weight,
       this.productQl.price,
-      0
+      0,
+      this.productQl.asset_url,
     )
   }
 

@@ -11,6 +11,7 @@ const allProductsQuery = gql`
     quantity
     weight
     price
+    asset_url
   }
 }
 `
