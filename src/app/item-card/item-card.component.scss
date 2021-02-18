@@ -4,8 +4,19 @@
 }
 
 .card-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     max-width: 400px;
+    height: 100%;
 }
+
+.card-bottom {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.product-image {}
 
 .header-image {
     background-image: url('../../assets/sam.png');

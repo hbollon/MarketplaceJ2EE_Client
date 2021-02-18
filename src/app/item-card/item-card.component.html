@@ -4,18 +4,20 @@
         <mat-card-title>{{product.name}}</mat-card-title>
         <mat-card-subtitle>Seller name</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src={{product.assetUrl}} alt="Le boss">
-    <mat-card-content>
-        <p>
-            {{product.description}}
-        </p>
-        <p>
-            <strong>Price: {{product.price}}€</strong>
-        </p>
-        <p [innerHTML]="deliveryFeesHtml"></p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button (click)="openRegisterDialog()">Buy</button>
-        <button mat-button (click)="showFees(product.weight)">Calculate delivery fees</button>
-    </mat-card-actions>
+    <img mat-card-image class="img-fluid mx-auto product-image" src={{product.assetUrl}} alt="product image">
+    <div>
+        <mat-card-content>
+            <p>
+                {{product.description}}
+            </p>
+            <p>
+                <strong>Price: {{product.price}}€</strong>
+            </p>
+            <p [innerHTML]="deliveryFeesHtml"></p>
+        </mat-card-content>
+        <mat-card-actions class="card-bottom">
+            <button mat-button (click)="openRegisterDialog()">Buy</button>
+            <button mat-button (click)="showFees(product.weight)">Calculate delivery fees</button>
+        </mat-card-actions>
+    </div>
 </mat-card>
