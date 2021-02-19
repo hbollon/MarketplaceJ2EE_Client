@@ -61,7 +61,7 @@ export class ItemCardComponent implements OnInit {
 
   async getDeliveryFee(weight: number): Promise<number> {
     const url =
-      'http://51.178.42.90:8080/MarketplaceServer-1.0-SNAPSHOT/services/DeliveryFee?wsdl';
+      'https://51.178.42.90:8181/MarketplaceServer-1.0-SNAPSHOT/services/DeliveryFee?wsdl';
     const sampleHeaders = {
       'Content-Type': 'text/xml;charset=UTF-8',
     };
@@ -133,7 +133,7 @@ export class ItemCardComponent implements OnInit {
         headers: new HttpHeaders({'Content-Type': 'application/json'})
       }
       this.http.post<any>(
-        "http://51.178.42.90:8080/MarketplaceServer-1.0-SNAPSHOT/rest/mangopay/pay",
+        "https://51.178.42.90:8181/MarketplaceServer-1.0-SNAPSHOT/rest/mangopay/pay",
         body,
         httpOptions
       ).subscribe(data => {
