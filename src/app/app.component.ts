@@ -44,11 +44,11 @@ export class AppComponent implements OnInit {
   fetchAllProducts() {
     this.apollo
       .query<any>({
-        query: allProductsQuery
+        query: allProductsQuery,
+        fetchPolicy: 'network-only'
       })
       .subscribe(
         ({ data, loading }) => {
-          console.log(data)
           this.products = data && data.products;
           this.loading = loading;
         }
@@ -72,14 +72,14 @@ export class AppComponent implements OnInit {
     console.log(addProductQuery)
     this.apollo
       .query<any>({
-        query: addProductQuery
+        query: addProductQuery,
+        fetchPolicy: 'network-only'
       })
       .subscribe(
         ({ data, error }) => {
           console.log(data)
           console.log(error)
           this.refreshList()
-          console.log(this.products)
         }
       );
   }
