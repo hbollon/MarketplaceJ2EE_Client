@@ -107,7 +107,10 @@
 }
 
 .menu-body {
-    display: grid;
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    margin-top: 2rem;
     width: 100%;
 }
 

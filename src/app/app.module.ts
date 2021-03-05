@@ -44,13 +44,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientRegisterDialogComponent } from './client-register-dialog/client-register-dialog.component';
+import { SellProductDialogComponent } from './sell-product-dialog/sell-product-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HamburgerMenuComponent,
     ItemCardComponent,
-    ClientRegisterDialogComponent
+    ClientRegisterDialogComponent,
+    SellProductDialogComponent
   ],
   imports: [
     BrowserModule,

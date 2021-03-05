@@ -1,0 +1,34 @@
+<h1 mat-dialog-title class="text-center">Sell new product</h1>
+<div mat-dialog-content class="text-center">
+    <p>
+        Please fill in these few details in order to add your product to the catalog.
+    </p>
+    <mat-form-field>
+        <mat-label>Product name</mat-label>
+        <input required matInput [(ngModel)]="data.name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product description</mat-label>
+        <input type="text" required matInput [(ngModel)]="data.description">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product quantity</mat-label>
+        <input type="number" matInput [(ngModel)]="data.quantity">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product weight</mat-label>
+        <input required matInput [(ngModel)]="data.weight">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product price</mat-label>
+        <input required matInput [(ngModel)]="data.price">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Product image url</mat-label>
+        <input matInput [(ngModel)]="data.assetUrl">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions class="justify-content-center">
+    <button mat-button [mat-dialog-close]="data">Submit</button>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+</div>
