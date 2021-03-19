@@ -23,7 +23,7 @@
 <div class="root__container">
     <header class="main__header">
         <div class="left__section">
-            <app-hamburger-menu class="center" (click)="toggleMenu()"></app-hamburger-menu>
+            <app-hamburger-menu class="center" [state]="showMenu" (click)="toggleMenu()"></app-hamburger-menu>
             <svg class="logo__icon"></svg>
         </div>
 

@@ -26,7 +26,7 @@ const allProductsQuery = gql`
 })
 export class AppComponent implements OnInit {
   public showProducts = true;
-  showMenu = false;
+  public showMenu = false;
   products: any[];
   loading = true;
 

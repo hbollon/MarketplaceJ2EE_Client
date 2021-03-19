@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-hamburger-menu',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hamburger-menu.component.scss']
 })
 export class HamburgerMenuComponent implements OnInit {
+  @Input() state: any;
   toggled = false;
 
   constructor() { }
@@ -13,8 +14,8 @@ export class HamburgerMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggle() {
-    this.toggled = !this.toggled;
-  }
-
+  ngOnChanges(changes: { [property: string]: SimpleChange }){
+    let change: SimpleChange = changes['state'];
+    this.toggled = change.currentValue;
+ }
 }
