@@ -45,6 +45,7 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientRegisterDialogComponent } from './client-register-dialog/client-register-dialog.component';
 import { SellProductDialogComponent } from './sell-product-dialog/sell-product-dialog.component';
+import { SellerDialogComponent } from './seller-dialog/seller-dialog.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { SellProductDialogComponent } from './sell-product-dialog/sell-product-d
     HamburgerMenuComponent,
     ItemCardComponent,
     ClientRegisterDialogComponent,
-    SellProductDialogComponent
+    SellProductDialogComponent,
+    SellerDialogComponent
   ],
   imports: [
     BrowserModule,

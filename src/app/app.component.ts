@@ -1,3 +1,4 @@
+import { SellerDialogComponent } from './seller-dialog/seller-dialog.component';
 import { SellProductDialogComponent } from './sell-product-dialog/sell-product-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -96,6 +97,12 @@ export class AppComponent implements OnInit {
       } else {
         console.log("dialog false");
       }
+    });
+  }
+
+  openSellerRegisterDialog() {
+    this.sellingDialog.open(SellerDialogComponent, {
+      width: '320px',
     });
   }
 

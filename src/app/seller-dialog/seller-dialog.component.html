@@ -1,0 +1,22 @@
+<h1 mat-dialog-title class="text-center">Seller registration</h1>
+<div mat-dialog-content class="text-center">
+    <p>
+        Please fill in these few details in order to create you seller account
+    </p>
+    <mat-form-field>
+        <mat-label>First name</mat-label>
+        <input required matInput [(ngModel)]="data.firstName">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Last name</mat-label>
+        <input required matInput [(ngModel)]="data.lastName">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="email" required email matInput [(ngModel)]="data.email">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions class="justify-content-center">
+    <button mat-button (click)="register()">Submit</button>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+</div>
