@@ -61,10 +61,10 @@ export class AppComponent implements OnInit {
       sellProduct(
         name: "${p.name}",
         description: "${p.description}",
-        quantity: ${p.quantity},
+        ${p.quantity != 0 ? "quantity: "+p.quantity+","  : ""}
         weight: ${p.weight},
         price: ${p.price},
-        asset_url: "${p.assetUrl}"
+        ${p.assetUrl != "" ? "asset_url: "+p.assetUrl  : ""}
       )
     }
     `
