@@ -31,7 +31,12 @@ export class ItemCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.product = new Product(
-      new Seller("", "", "", 0),
+      new Seller(
+        this.productQl.seller.firstName,
+        this.productQl.seller.lastName,
+        this.productQl.seller.email,
+        this.productQl.seller.walletId
+      ),
       this.productQl.name,
       this.productQl.description,
       this.productQl.quantity,

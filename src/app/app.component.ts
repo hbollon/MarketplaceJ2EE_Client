@@ -16,6 +16,12 @@ const allProductsQuery = gql`
     weight
     price
     asset_url
+    seller {
+      firstName
+      lastName
+      email
+      walletId
+    }
   }
 }
 `
@@ -58,6 +64,7 @@ export class AppComponent implements OnInit {
   }
 
   sendNewProduct(p: Product): void {
+    console.log(p.seller.email)
     const addProductQuery = gql`
     {
       sellProduct(
@@ -66,7 +73,8 @@ export class AppComponent implements OnInit {
         ${p.quantity != 0 ? "quantity: "+p.quantity+","  : ""}
         weight: ${p.weight},
         price: ${p.price},
-        ${p.assetUrl != "" ? "asset_url: "+p.assetUrl  : ""}
+        ${p.assetUrl != "" ? "asset_url: \""+p.assetUrl+"\","  : ""}
+        seller: "${p.seller.email}"
       )
     }
     `

@@ -40,6 +40,8 @@ export class SellerDialogComponent implements OnInit {
       })
       .subscribe(
         ( result: any ) => {
+          console.log(result.data)
+          console.log(result.error)
           this.loading = result.loading;
           this.error = result.error;
         }
