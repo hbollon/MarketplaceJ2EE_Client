@@ -23,9 +23,10 @@ Les fonctionnalités suivantes sont pour l'instant implémentées:
 
 - Visualisation de tout les articles disponible dans le catalogue
 - Calcul et visualisation des frais de ports avant achat
-- Renseignement des informations personnelles nécessaires avant achat
+- Renseignement des informations personnelles nécessaires avant achat et création du compte client MangoPay automatique
 - Paiement sécurisé d'un article via MangoPay avec redirection automatique
-
+- Inscription de vendeur à la marketplace avec création du compte client MangoPay et du wallet automatique
+- Mise en vente d'article avec vendeur associé
 
 Vous pouvez retrouver une live démo hébergé sur GitHub Page [ici](https://hbollon.github.io/MarketplaceJ2EE_Client/). Attention ce projet n'est pour l'instant pas compatible avec tout les navigateurs, certains requièrent une manipulation pour whitelist l'adresse ip du VPS vers lequel nous effectuons nos requêtes (voir section ***Problèmes Connu***).
 
@@ -51,7 +52,7 @@ Voici la marche à suivre pour Firefox:
 - Entrez une des adresses, cliquez sur **Obtenir le certificat** puis sur **Confirmer l'exception de sécurité**
 - Faite le pour la deuxième url
 
-Pour Chrome: 
+Pour Chrome:
 
 - Accédez à l'url https://51.178.42.90:8081
 - Cliquez sur **paramètres avancés** et ensuite sur **Continuer vers https://51.178.42.90:8081**
