@@ -1,4 +1,7 @@
+import { Seller } from "./seller.model";
+
 export class Product {
+  public seller: Seller;
   public name: string;
   public description: string;
   public quantity: number;
@@ -8,6 +11,7 @@ export class Product {
   public assetUrl: string;
 
   constructor(
+    seller: Seller,
     name: string,
     description: string,
     quantity: number,
@@ -16,6 +20,7 @@ export class Product {
     fees: number,
     assetUrl: string
   ) {
+    this.seller = seller;
     this.name = name;
     this.description = description;
     this.quantity = quantity;

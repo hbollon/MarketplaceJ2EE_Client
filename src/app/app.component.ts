@@ -33,7 +33,8 @@ export class AppComponent implements OnInit {
   constructor(
     public router: Router,
     private apollo: Apollo,
-    public sellingDialog: MatDialog
+    public sellingDialog: MatDialog,
+    public sellerDialog: MatDialog
   ) {
     this.products = []
   }
@@ -91,8 +92,7 @@ export class AppComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result != false) {
-        console.log(result);
+      if(result instanceof Product) {
         this.sendNewProduct(result)
       } else {
         console.log("dialog false");
@@ -101,7 +101,7 @@ export class AppComponent implements OnInit {
   }
 
   openSellerRegisterDialog() {
-    this.sellingDialog.open(SellerDialogComponent, {
+    this.sellerDialog.open(SellerDialogComponent, {
       width: '320px',
     });
   }

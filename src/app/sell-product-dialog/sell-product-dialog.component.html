@@ -3,6 +3,14 @@
     <p>
         Please fill in these few details in order to add your product to the catalog.
     </p>
+    <mat-form-field appearance="fill">
+        <mat-label>Seller</mat-label>
+        <mat-select required [(ngModel)]="data.seller" name="seller">
+            <mat-option *ngFor="let seller of this.sellers" [value]="seller">
+                {{seller.email}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
     <mat-form-field>
         <mat-label>Product name</mat-label>
         <input required matInput [(ngModel)]="data.name">

@@ -6,6 +6,7 @@ import { Client } from 'src/app/models/client.model'
 import { ClientRegisterDialogComponent } from './../client-register-dialog/client-register-dialog.component';
 import { BuyRequest } from '../models/buyRequest.model';
 import { Product } from '../models/product.model';
+import { Seller } from '../models/seller.model';
 
 const soapRequest: any = require('easy-soap-request');
 
@@ -30,6 +31,7 @@ export class ItemCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.product = new Product(
+      new Seller("", "", "", 0),
       this.productQl.name,
       this.productQl.description,
       this.productQl.quantity,

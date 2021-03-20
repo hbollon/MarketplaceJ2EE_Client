@@ -1,18 +1,14 @@
-import { Router } from '@angular/router';
-import { Apollo } from "apollo-angular";
-import gql from "graphql-tag";
-
 export class Seller {
   public firstName: string;
   public lastName: string;
   public email: string;
-  public walletId: string;
+  public walletId: number;
 
   constructor(
     firstName: string,
     lastName: string,
     email: string,
-    walletId: string
+    walletId: number
   ) {
     this.firstName = firstName;
     this.lastName = lastName;

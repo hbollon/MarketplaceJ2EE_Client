@@ -19,7 +19,7 @@ export class SellerDialogComponent implements OnInit {
     public router: Router,
     private apollo: Apollo,
     @Inject(MAT_DIALOG_DATA) public data: Seller) {
-      this.data = new Seller("", "", "", "")
+      this.data = new Seller("", "", "", 0)
     }
 
   register(): void {
